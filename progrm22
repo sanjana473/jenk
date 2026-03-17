@@ -1,1 +1,109 @@
+## 1 program
+create new folder 'Devops'
+go inside and copy the address
+open gitbash
+$cd ..
+create github repository and copy the address
+$git clone https://..
+$git init
+$cd prog1
+$nano first.txt
+$git config --global user.email ...
+$git config --global user.name ...
+$git add first.txt
+$git add .
+$git commit -m "first file"
+$git status
+$git push
+go to github->click prog1->edit option->put messages put"hello everyone"->commit changes
+$git pull
+$nano first.txt ->134567
+$git reset --hard
+$nano first.txt
+$git log
 
+
+## 2 program
+got to github
+search "add two numbers"
+select fork
+then rename repo name as 'Add'-create fork-copy url 
+go to git bash
+$cd ..
+$git clone 
+$cd Add
+$git init
+$git branch f1
+$git checkout f1
+$nano file1.txt-"hello"
+$git add file1.txt
+$git commit -m"file1"
+$nano file2.txt
+$git add file2.txt
+$git commit -m"file2"
+$git checkout main
+$git  merge f1
+$nano file.txt
+$git add first.txt
+$git commit -m"first"
+$git checkout f1
+$nano first.txt
+$git add first.txt
+$git commit -m"firstfi"
+$git checkout main
+$git merge f1
+$git diff first.txt
+
+
+## 3 program (jenkins)
+github : create new repo(test) copy the link 
+vs code :write simple java(myfile.java) code put it inside github repo file c:....../test
+          git bash: cd "path"
+          git clone " http:/....../test"
+          cd test
+          git add myfile.java
+          git commit -m "done"
+          git push
+jenkins:new item :test
+        choose frestyle ->ok
+        souce code manager :git 
+                            change to main
+                            choose hook(optional)
+                            build steps (execute windows... code(javac myfile.java)
+                            save
+        build now : correct marks
+
+
+
+## 4 program
+go to file->new->maven project->next->in filter type->org.apche.maven->artifact id->maven-archetype-quickstart-1.5->it should be 1.5 if not restart the eclipse
+there give groupid:example1 and artifact id:example1->next->console will open->type Y we can see BUILD SUCCESS and folder in corner
+go to example1->pom.xml->go to 33 line
+go to chrome->maven repo->in search->type->simple json->select 1st link->go to lastest versions->select 1.1.1->scroll down->copy code inside dependency->paste it to 33 line->save
+select example1->right click->new->folder->name it as ->jsonfile
+select example1->right click->new->file->name it as->emp.json
+type under emp.json
+{
+"firstname":"thrisha",
+"lastname":"gowda"
+}
+select src/text/java-select-new-class-example1-finish
+then write code
+package example1.example1;
+import java.io.FileReader;
+import java.io.IOExpection;
+import java.text.ParseException;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+public class Example1{
+public static void main(String[] args)throws IOException,ParseException,org.json.simple.parse.ParseException{
+JSONParser jsonparser=new JSONParser();
+FileReader filereader=new FileReadeer(".\\jsonfile\\emp.json");
+Object obj=jsonparser.parse(filereader);
+JSONObject empobj=(JSONObject)obj;
+String fname=(String)empobj.get("firstname");
+String lname=(String)empobj.get("lastname");
+System.out.println("Firstname:"+fname);
+System.out.println("Lastname:"+lname);
+}
+}
